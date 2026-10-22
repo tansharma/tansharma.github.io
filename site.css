@@ -538,7 +538,9 @@ pre code {
 
 
 /* ---- Project cards ----
-   One card per project, the portfolio's only new component. The whole card
+   One card per project, the portfolio's only new component. Three to a row
+   inside the 780px shell, so the icon sits above the text rather than beside
+   it; auto-fill drops to two columns, then one, as the viewport narrows. The whole card
    is the hit target: the title link's ::after stretches over the card, so
    there is still exactly one link per card for screen readers. */
 .section-intro {
@@ -549,7 +551,7 @@ pre code {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
   margin: 12px 0 8px;
 }
@@ -557,7 +559,8 @@ pre code {
 .project-card {
   position: relative;
   display: flex;
-  gap: 18px;
+  flex-direction: column;
+  gap: 14px;
   align-items: flex-start;
   max-width: none;
   margin: 0;
