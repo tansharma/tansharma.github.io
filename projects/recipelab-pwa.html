@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RecipeLab PWA · Tanay Sharma</title>
+<meta name="description" content="The original RecipeLab prototype: a dependency-free progressive web app for browsing, comparing and tweaking rangefinder-inspired Fujifilm camera recipes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="../index.html" aria-label="Tanay Sharma home">
+      <span class="wordmark__text">TANAY SHARMA</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../index.html">Projects</a>
+      <a href="../index.html#wip">Work in progress</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <section class="hero">
+      <span class="hero__icon project-card__icon--mono" aria-hidden="true">Rl</span>
+      <p class="meta meta--accent">WEB · PWA · OPEN SOURCE</p>
+      <h1>RecipeLab PWA</h1>
+      <p class="lede">A mobile-first progressive web app of rangefinder-inspired Fujifilm recipes. Browse, compare, tweak and save them in your browser, with nothing to install and your data on your device.</p>
+
+      <div class="actions">
+        <a class="button-accent" href="https://github.com/tansharma/recipelab-pwa">View on GitHub</a>
+        <a class="button-outline" href="../index.html#open-source">All projects</a>
+      </div>
+    </section>
+
+    <div class="callout">
+      <p>This was the original prototype. The native <a href="https://tansharma.github.io/RecipeLab/">RecipeLab app for iPhone and iPad</a> has since gone much further, and is where new features land. This repository is a simpler, open-source starting point for anyone who wants to build on it.</p>
+    </div>
+
+    <h2>What it does</h2>
+
+    <div class="feature-grid">
+      <div class="card">
+        <h3>47 engineered recipes</h3>
+        <p>Mapped to real film stocks and rangefinder shooting styles, as a starting point instead of trial and error.</p>
+      </div>
+      <div class="card">
+        <h3>Knows your camera</h3>
+        <p>Recipes are checked against your sensor generation. Anything your body can't do shows a fallback suggestion.</p>
+      </div>
+      <div class="card">
+        <h3>Preview on your photo</h3>
+        <p>Add an image and see a real-time approximation of the recipe before you dial it in on the camera.</p>
+      </div>
+      <div class="card">
+        <h3>Tweak, save and assign</h3>
+        <p>Save named variations, log which custom slot holds each one, and open a full-screen field reference at the camera.</p>
+      </div>
+    </div>
+
+    <h2>Try it</h2>
+    <pre><code>python3 -m http.server 8000</code></pre>
+    <p>Then open <code>http://localhost:8000</code>. There is no build step and no bundler.</p>
+
+    <h2>Project facts</h2>
+
+    <dl class="rows">
+      <div class="row"><dt>Licence</dt><dd>MIT</dd></div>
+      <div class="row"><dt>Language</dt><dd>JavaScript, HTML, CSS. No dependencies.</dd></div>
+      <div class="row"><dt>Platform</dt><dd>Any modern browser; installable to the home screen</dd></div>
+      <div class="row"><dt>Status</dt><dd>Available. New work happens in the native app.</dd></div>
+      <div class="row"><dt>Repository</dt><dd><a href="https://github.com/tansharma/recipelab-pwa">github.com/tansharma/recipelab-pwa</a></dd></div>
+    </dl>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>© 2026 Tanay Sharma. <a href="https://github.com/tansharma">GitHub</a> · <a href="../about.html">About</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

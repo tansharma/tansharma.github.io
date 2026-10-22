@@ -1,0 +1,724 @@
+/* tansharma.com — the portfolio, in the same family as the product sites.
+ *
+ * Structure, type and spacing follow latent.css (Latent-Suite/latent-site),
+ * as do hindsight.css, recipelab.css and larder.css, so moving from this page
+ * to any product site reads as one family. Only the palette is this site's
+ * own: Hindsight's paper #fbfaf5 and ink #252525, with one cool slate accent
+ * so the product icons (green, red, amber) carry the colour, not the frame.
+ *
+ * The rules the product sites follow apply here as well:
+ * - One accent-filled action per page; everything else is outline or text.
+ * - Cormorant Garamond for the wordmark, a page's own <h1> and the lede only.
+ *   h2/h3 use the system body face at weight.
+ * - Text meets WCAG AA (4.5:1). Slate #3b5b7e is 6.7:1 on paper; #9fb8d6 is
+ *   8.5:1 on the dark surface.
+ *
+ * Every path here is relative. Pages under projects/ link this file as
+ * ../site.css, and the font URLs below resolve against this file, not the page. */
+
+/* ---- Fonts: self-hosted, Latin subset (the same files every product site
+   ships). No external requests anywhere on this site. ---- */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./fonts/cormorant-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./fonts/cormorant-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./fonts/plexmono-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Palette ----
+   Light first on bare :root so a viewer with no preference still gets a
+   complete palette, then dark overrides only what changes. */
+:root {
+  --surface: #fbfaf5;
+  --surface-raised: #ffffff;
+  --text: #252525;
+  --text-secondary: rgba(37, 37, 37, 0.78);
+  --text-quiet: rgba(37, 37, 37, 0.7);
+  --accent: #3b5b7e;
+  --on-accent: #fbfaf5;
+  --accent-wash: rgba(59, 91, 126, 0.08);
+  --hairline: rgba(37, 37, 37, 0.14);
+  --hairline-strong: rgba(37, 37, 37, 0.32);
+
+  --radius-card: 8px;
+  --radius-small: 6px;
+  --radius-pill: 999px;
+  --measure: 68ch;
+
+  --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1a1a19;
+    --surface-raised: #232322;
+    --text: #fbfaf5;
+    --text-secondary: rgba(251, 250, 245, 0.72);
+    --text-quiet: rgba(251, 250, 245, 0.6);
+    --accent: #9fb8d6;
+    --on-accent: #1a1a19;
+    --accent-wash: rgba(159, 184, 214, 0.1);
+    --hairline: rgba(251, 250, 245, 0.12);
+    --hairline-strong: rgba(251, 250, 245, 0.3);
+  }
+}
+
+/* ---- Reset-ish ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* No italics — the product sites render em upright, and so does this one. */
+em,
+i,
+cite,
+address {
+  font-style: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--surface-raised);
+  color: var(--text);
+  padding: 12px 18px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-small);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+/* ---- Layout ---- */
+.shell {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main {
+  padding: 8px 0 72px;
+}
+
+/* ---- Wordmark ----
+   Built in CSS, not as an image — an external image can't reach this page's
+   @font-face and would neither adapt to the current appearance nor use the
+   real display face. This is the one legitimate "once per screen" use of
+   Cormorant Garamond on every page, alongside the page's own <h1>. */
+.wordmark {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.wordmark__text {
+  display: block;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--text);
+}
+
+.wordmark__rule {
+  display: block;
+  width: 36px;
+  height: 1px;
+  margin: 8px auto 0;
+  background: var(--accent);
+  border: 0;
+}
+
+/* ---- Site header / footer ---- */
+.site-header {
+  border-bottom: 1px solid var(--hairline);
+  padding: 28px 0 22px;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.site-nav a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  padding: 28px 0 44px;
+  color: var(--text-quiet);
+  font-size: 14px;
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+/* ---- Meta label — the mono small-caps signature shared with every
+   product site (uppercase, tracking, IBM Plex Mono). ---- */
+.meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-quiet);
+  margin: 0 0 10px;
+}
+
+.meta--accent {
+  color: var(--accent);
+}
+
+/* ---- Typography ----
+   h1 is the page's one Cormorant Garamond heading, matching "once per
+   screen." h2/h3 deliberately use the system body face, not the display
+   face — a section break signalled by a preceding .meta label and a
+   hairline, without a second typeface or a second accent. */
+h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0;
+  text-wrap: balance;
+  font-size: clamp(2.3rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  margin: 12px 0 18px;
+}
+
+h2 {
+  font-family: var(--body);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  font-size: clamp(1.4rem, 3.2vw, 1.7rem);
+  line-height: 1.25;
+  margin: 52px 0 14px;
+  padding-top: 26px;
+  border-top: 1px solid var(--hairline);
+}
+
+h3 {
+  font-family: var(--body);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  margin: 28px 0 8px;
+}
+
+p,
+li {
+  max-width: var(--measure);
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul,
+ol {
+  padding-left: 22px;
+  margin: 0 0 18px;
+}
+
+li {
+  margin-bottom: 9px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.lede {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.6vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 22px 24px;
+  margin: 0 0 16px;
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* ---- The single accent action ----
+   One filled button per page, at most — everything else is outline or
+   text. A second filled button would read as two competing calls to action. */
+.button-accent {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--accent);
+}
+
+.button-accent:hover {
+  filter: brightness(1.08);
+  text-decoration: none;
+}
+
+.button-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 25px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--hairline-strong);
+}
+
+.button-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 8px;
+}
+
+/* ---- Landing hero ---- */
+.hero {
+  padding: 48px 0 8px;
+}
+
+.hero__icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 19px;
+  border: 1px solid var(--hairline);
+  margin-bottom: 6px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin: 12px 0 8px;
+}
+
+.feature-grid .card {
+  margin: 0;
+}
+
+.feature-grid p {
+  color: var(--text-secondary);
+  font-size: 15.5px;
+  margin: 0;
+}
+
+/* ---- FAQ ---- */
+details {
+  border-bottom: 1px solid var(--hairline);
+  padding: 4px 0;
+}
+
+details summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 34px 18px 0;
+  position: relative;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 17px;
+  color: var(--accent);
+}
+
+details[open] summary::after {
+  content: "\2212";
+}
+
+details .answer {
+  padding: 0 0 14px;
+  color: var(--text-secondary);
+}
+
+details .answer > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Code blocks ---- */
+pre {
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-small);
+  padding: 16px 18px;
+  overflow-x: auto;
+  margin: 0 0 18px;
+}
+
+pre code {
+  display: block;
+  color: var(--text);
+  background: none;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+/* ---- Definition-style rows (project facts: licence, language, status) ---- */
+.rows {
+  border-top: 1px solid var(--hairline);
+  margin: 18px 0 26px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(140px, 30%) 1fr;
+  gap: 8px 24px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.row dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 3px;
+}
+
+.row dd {
+  margin: 0;
+  max-width: var(--measure);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 560px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* ---- Callout ---- */
+.callout {
+  border-left: 2px solid var(--accent);
+  background: var(--accent-wash);
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
+  padding: 16px 20px;
+  margin: 0 0 22px;
+}
+
+.callout > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---- Project cards ----
+   One card per project, the portfolio's only new component. The whole card
+   is the hit target: the title link's ::after stretches over the card, so
+   there is still exactly one link per card for screen readers. */
+.section-intro {
+  color: var(--text-secondary);
+}
+
+.project-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin: 12px 0 8px;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  max-width: none;
+  margin: 0;
+  background: var(--surface-raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 20px 22px;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--hairline-strong);
+}
+
+.project-card__icon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 11px;
+  border: 1px solid var(--hairline);
+}
+
+/* A project with no app icon gets a typeset monogram tile instead, drawn
+   here rather than as an image so it follows the current appearance. */
+.project-card__icon--mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-wash);
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* The same monogram at hero size, for a project page with no app icon. */
+.hero__icon.project-card__icon--mono {
+  width: 88px;
+  height: 88px;
+  border-radius: 19px;
+  font-size: 38px;
+}
+
+.project-card__body {
+  min-width: 0;
+}
+
+.project-card p.meta {
+  font-size: 11px;
+  color: var(--text-quiet);
+  margin-bottom: 6px;
+}
+
+.project-card h3 {
+  margin: 0 0 6px;
+}
+
+.project-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-card h3 a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+}
+
+.project-card:hover h3 a {
+  color: var(--accent);
+}
+
+.project-card p {
+  color: var(--text-secondary);
+  font-size: 15.5px;
+  margin: 0 0 12px;
+}
+
+.project-card > .project-card__body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Work in progress: named, not linked. A dashed edge says "not yet" without
+   a second colour. */
+.project-card--wip {
+  background: transparent;
+  border-style: dashed;
+}
+
+.project-card--wip:hover {
+  border-color: var(--hairline);
+}
+
+/* ---- Status pill ---- */
+.status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-quiet);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+}
+
+.project-card p.status {
+  font-size: 10.5px;
+  color: var(--text-quiet);
+}
+
+.project-card p.status--shipped {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---- Print ---- */
+@media print {
+  :root {
+    --surface: #fff;
+    --surface-raised: #fff;
+    --text: #000;
+    --text-secondary: #333;
+    --text-quiet: #555;
+    --accent: #2b4561;
+    --hairline: #ccc;
+  }
+
+  body {
+    font-size: 11.5pt;
+  }
+
+  .site-nav,
+  .skip-link,
+  .actions {
+    display: none;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-family: var(--mono);
+    font-size: 9pt;
+    color: #555;
+  }
+
+  .project-card h3 a::after {
+    position: static;
+  }
+
+  .project-card {
+    break-inside: avoid;
+  }
+
+  h2 {
+    break-after: avoid;
+  }
+}

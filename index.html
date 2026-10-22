@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanay Sharma · Projects</title>
+<meta name="description" content="Apps, open-source tools and works in progress by Tanay Sharma: RecipeLab, Larder, Latent, Hindsight, Counter, Filament, Loom and more.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="./assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="./index.html" aria-label="Tanay Sharma home">
+      <span class="wordmark__text">TANAY SHARMA</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="./index.html" aria-current="page">Projects</a>
+      <a href="./index.html#wip">Work in progress</a>
+      <a href="./about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <section class="hero">
+      <p class="meta meta--accent">SOFTWARE · APPS · OPEN SOURCE</p>
+      <h1>Things I'm building.</h1>
+      <!-- TODO(you): replace this lede with your own words. -->
+      <p class="lede">Native apps for iPhone, iPad and Mac, and the open-source tools and libraries that fall out of making them. Most of it is local first: your data stays on your device unless you ask otherwise.</p>
+    </section>
+
+    <h2 id="apps">Apps</h2>
+    <p class="section-intro">Each app has its own site with features, FAQ, support and privacy policy.</p>
+
+    <ul class="project-grid">
+      <li class="project-card">
+        <img class="project-card__icon" src="./assets/icons/recipelab.png" alt="" width="48" height="48">
+        <div class="project-card__body">
+          <p class="meta">IPHONE · IPAD</p>
+          <h3><a href="https://tansharma.github.io/RecipeLab/">RecipeLab</a></h3>
+          <p>A curated reference for Fujifilm camera settings shaped by analogue photography: 47 recipes, cross-referenced against your camera's sensor.</p>
+          <p class="status status--shipped">On the App Store</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <img class="project-card__icon" src="./assets/icons/larder.png" alt="" width="48" height="48">
+        <div class="project-card__body">
+          <p class="meta">IPHONE · IPAD · MAC</p>
+          <h3><a href="https://lardermaison.tansharma.com/">Larder</a></h3>
+          <p>Catalogs the links you keep, especially recipe reels, into folders you choose, searchable by tag and ingredient. Listed on the App Store as Larder Maison.</p>
+          <p class="status">Coming soon</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <img class="project-card__icon" src="./assets/icons/latent.png" alt="" width="48" height="48">
+        <div class="project-card__body">
+          <p class="meta">MAC · APPLE SILICON</p>
+          <h3><a href="https://latent.tansharma.com/">Latent</a></h3>
+          <p>Catalogs, captions and critiques a photo library on your Mac with on-device and local AI, and keeps the catalog on your own drive in plain files.</p>
+          <p class="status">In development</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="open-source">Open source</h2>
+    <p class="section-intro">Source on GitHub. Licences are listed on each project's page.</p>
+
+    <ul class="project-grid">
+      <li class="project-card">
+        <img class="project-card__icon" src="./assets/icons/hindsight.png" alt="" width="48" height="48">
+        <div class="project-card__body">
+          <p class="meta">AGENT SKILL</p>
+          <h3><a href="https://tansharma.github.io/hindsight/">Hindsight</a></h3>
+          <p>A deep architectural review of a whole project against the goal you state, for Claude Code, Codex CLI, Gemini CLI and GitHub Copilot.</p>
+          <p class="status status--shipped">Available</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Co</span>
+        <div class="project-card__body">
+          <p class="meta">MACOS · SWIFTUI</p>
+          <h3><a href="./projects/counter.html">Counter</a></h3>
+          <p>A local-first token-usage dashboard for AI-assisted coding sessions across Claude Code, Codex, Gemini CLI and OpenCode.</p>
+          <p class="status status--shipped">Available</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Fi</span>
+        <div class="project-card__body">
+          <p class="meta">SWIFT PACKAGE · MACOS · IOS</p>
+          <h3><a href="./projects/filament.html">Filament</a></h3>
+          <p>An Obsidian-inspired interactive graph view for SwiftUI, with a pure, unit-tested force-directed layout engine.</p>
+          <p class="status status--shipped">Available</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Lo</span>
+        <div class="project-card__body">
+          <p class="meta">PYTHON · TERMINAL</p>
+          <h3><a href="./projects/loom.html">Loom</a></h3>
+          <p>A terminal wizard that turns a raw app idea into LLM-ready project files, so a coding agent starts every session with stable context.</p>
+          <p class="status status--shipped">Available</p>
+        </div>
+      </li>
+      <li class="project-card">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Rl</span>
+        <div class="project-card__body">
+          <p class="meta">WEB · PWA</p>
+          <h3><a href="./projects/recipelab-pwa.html">RecipeLab PWA</a></h3>
+          <p>The original RecipeLab prototype: a dependency-free progressive web app for browsing, comparing and tweaking Fujifilm recipes.</p>
+          <p class="status status--shipped">Available</p>
+        </div>
+      </li>
+    </ul>
+
+    <h2 id="wip">Work in progress</h2>
+    <p class="section-intro">Not public yet. Named here so you know what's coming.</p>
+
+    <ul class="project-grid">
+      <li class="project-card project-card--wip">
+        <img class="project-card__icon" src="./assets/icons/ledger.png" alt="" width="48" height="48">
+        <div class="project-card__body">
+          <p class="meta">MAC</p>
+          <h3>Ledger</h3>
+          <p>A personal finance app: one place for net worth, budgeting and planning.</p>
+        </div>
+      </li>
+      <li class="project-card project-card--wip">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Sp</span>
+        <div class="project-card__body">
+          <p class="meta">SWIFT PACKAGE</p>
+          <h3>Spool</h3>
+          <p>GitHub-style activity views for SwiftUI: a contribution heatmap, a streak strip and more.</p>
+        </div>
+      </li>
+      <li class="project-card project-card--wip">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Sh</span>
+        <div class="project-card__body">
+          <p class="meta">PYTHON · TERMINAL</p>
+          <h3>Shuttle</h3>
+          <p>Loom's execution companion: one task at a time, with a human in the loop.</p>
+        </div>
+      </li>
+      <li class="project-card project-card--wip">
+        <span class="project-card__icon project-card__icon--mono" aria-hidden="true">Gr</span>
+        <div class="project-card__body">
+          <p class="meta">PYTHON</p>
+          <h3>Grain</h3>
+          <p>A dependency-free static site generator for Fujifilm film recipes.</p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>© 2026 Tanay Sharma. <a href="https://github.com/tansharma">GitHub</a> · <a href="./about.html">About</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counter · Tanay Sharma</title>
+<meta name="description" content="Counter is a local-first token-usage dashboard for AI-assisted coding sessions on macOS, reading the session logs Claude Code, Codex, Gemini CLI and OpenCode write to disk.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon-64.png" sizes="64x64">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="../index.html" aria-label="Tanay Sharma home">
+      <span class="wordmark__text">TANAY SHARMA</span>
+      <span class="wordmark__rule"></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../index.html">Projects</a>
+      <a href="../index.html#wip">Work in progress</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+
+    <section class="hero">
+      <span class="hero__icon project-card__icon--mono" aria-hidden="true">Co</span>
+      <p class="meta meta--accent">MACOS · SWIFTUI · OPEN SOURCE</p>
+      <h1>Counter</h1>
+      <p class="lede">A local-first token-usage dashboard for your AI-assisted coding sessions. How much have I burned in this 5-hour block, when does it reset, and what am I spending it on?</p>
+
+      <div class="actions">
+        <a class="button-accent" href="https://github.com/tansharma/counter">View on GitHub</a>
+        <a class="button-outline" href="../index.html#open-source">All projects</a>
+      </div>
+    </section>
+
+    <h2>What it does</h2>
+
+    <div class="feature-grid">
+      <div class="card">
+        <h3>Usage at a glance</h3>
+        <p>Session and weekly token totals across every agent you use, with a countdown to Claude Code's next block reset.</p>
+      </div>
+      <div class="card">
+        <h3>A measured ceiling, not a guess</h3>
+        <p>Reads the rate-limit rejections Claude Code records in its own transcripts and reports the real 5-hour limit, with the sample count shown.</p>
+      </div>
+      <div class="card">
+        <h3>Where it all goes</h3>
+        <p>A year-long activity heatmap, per-model tokens and estimated cost, per-project focus time, and a project-to-model graph.</p>
+      </div>
+      <div class="card">
+        <h3>Local and read-only</h3>
+        <p>No network calls, no API keys, no accounts. Counter reads the logs Claude Code, Codex, Gemini CLI and OpenCode write to disk, and never writes to them.</p>
+      </div>
+    </div>
+
+    <h2>Project facts</h2>
+
+    <dl class="rows">
+      <div class="row"><dt>Licence</dt><dd>MIT</dd></div>
+      <div class="row"><dt>Language</dt><dd>Swift, SwiftUI</dd></div>
+      <div class="row"><dt>Platform</dt><dd>macOS 14 or later</dd></div>
+      <div class="row"><dt>Status</dt><dd>Available</dd></div>
+      <div class="row"><dt>Repository</dt><dd><a href="https://github.com/tansharma/counter">github.com/tansharma/counter</a></dd></div>
+    </dl>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <p>© 2026 Tanay Sharma. <a href="https://github.com/tansharma">GitHub</a> · <a href="../about.html">About</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
