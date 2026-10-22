@@ -2,8 +2,9 @@
  *
  * Structure, type and spacing follow latent.css (Latent-Suite/latent-site),
  * as do hindsight.css, recipelab.css and larder.css, so moving from this page
- * to any product site reads as one family. Only the palette is this site's
- * own: Hindsight's paper #fbfaf5 and ink #252525, with one cool slate accent
+ * to any product site reads as one family. Two things are this site's own:
+ * a wider shell (960px, not 780px) so the project index fits three square
+ * tiles to a row, and the palette: Hindsight's paper #fbfaf5 and ink #252525, with one cool slate accent
  * so the product icons (green, red, amber) carry the colour, not the frame.
  *
  * The rules the product sites follow apply here as well:
@@ -150,7 +151,7 @@ a:hover {
 /* ---- Layout ---- */
 .shell {
   width: 100%;
-  max-width: 780px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -407,7 +408,7 @@ code {
 
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 16px;
   margin: 12px 0 8px;
 }
@@ -538,9 +539,10 @@ pre code {
 
 
 /* ---- Project cards ----
-   One card per project, the portfolio's only new component. Three to a row
-   inside the 780px shell, so the icon sits above the text rather than beside
-   it; auto-fill drops to two columns, then one, as the viewport narrows. The whole card
+   One card per project, the portfolio's only new component. Square tiles,
+   three to a row in the 960px shell, with the icon above the text. The
+   260px minimum drops the grid to two columns, then one, as the viewport
+   narrows; aspect-ratio is a floor, so a tile grows if its text needs it. The whole card
    is the hit target: the title link's ::after stretches over the card, so
    there is still exactly one link per card for screen readers. */
 .section-intro {
@@ -551,12 +553,13 @@ pre code {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
   margin: 12px 0 8px;
 }
 
 .project-card {
+  aspect-ratio: 1 / 1;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -606,6 +609,10 @@ pre code {
 }
 
 .project-card__body {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 
@@ -670,8 +677,10 @@ pre code {
 }
 
 .project-card p.status {
+  align-self: flex-start;
   font-size: 10.5px;
   color: var(--text-quiet);
+  margin-top: auto;
 }
 
 .project-card p.status--shipped {
